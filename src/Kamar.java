@@ -1,29 +1,11 @@
-public class Kamar {
-    String jenisKamar;
-    int hargaPerMalam;
+public class Kamar extends KamarBase {
 
-    public Kamar(String jenisKamar, int hargaPerMalam) {
-        this.jenisKamar = jenisKamar;
-        this.hargaPerMalam = hargaPerMalam;
-    }
-    
-    public String getJenisKamar() {
-        return jenisKamar;
+    public Kamar(String tipe, int hargaPerMalam) {
+        super(tipe, hargaPerMalam);
     }
 
-    public int getHargaPerMalam() {
-        return hargaPerMalam;
-    }
-}
-
-public class VIP extends Kamar {
-    public VIP(int hargaPerMalam) {
-        super("VIP", hargaPerMalam);
-    }
-}
-
-public class Reguler extends Kamar {
-    public Reguler(int hargaPerMalam) {
-        super("Reguler", hargaPerMalam);
+    @Override
+    public int hitungHarga(int jumlahMalam) {
+        return getHargaPerMalam() * jumlahMalam;
     }
 }

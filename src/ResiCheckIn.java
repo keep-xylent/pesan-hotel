@@ -1,27 +1,19 @@
+import java.util.Date;
+
 public class ResiCheckIn {
-    PemesananKamar[] dataPemesananKamar = new PemesananKamar[10];
-    InformasiTamu informasiTamu;
-    int index = 0;
+    private String nomorResi;
+    private Date checkIn;
+    private Date checkOut;
 
-    public ResiCheckIn(InformasiTamu informasiTamu) {
-        this.informasiTamu = informasiTamu;
+    public ResiCheckIn(String nomorResi, Date checkIn, Date checkOut) {
+        this.nomorResi = nomorResi;
+        this.checkIn = checkIn;
+        this.checkOut = checkOut;
     }
 
-    public void tambahPemesanan(PemesananKamar pemesanan) {
-        if (index < dataPemesananKamar.length) {
-            dataPemesananKamar[index++] = pemesanan;
-        } else {
-            System.out.println("Data pemesanan penuh.");
-        }
-    }
-
-    public int hitungHargaTotal() {
-        int total = 0;
-        for (PemesananKamar pemesanan : dataPemesananKamar) {
-            if (pemesanan != null) {
-                total += pemesanan.hitungTotalHarga();
-            }
-        }
-        return total;
+    public void printResi() {
+        System.out.println("Nomor Resi: " + nomorResi);
+        System.out.println("Check-In: " + checkIn);
+        System.out.println("Check-Out: " + checkOut);
     }
 }
