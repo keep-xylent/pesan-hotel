@@ -6,7 +6,6 @@ public class Hotel {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Tambahkan dua tipe kamar
         ArrayList<Kamar> kamarList = new ArrayList<>();
         kamarList.add(new Kamar("Deluxe", 500000));
         kamarList.add(new Kamar("Superior", 300000));
@@ -19,7 +18,7 @@ public class Hotel {
 
         System.out.print("Pilih tipe kamar (1/2): ");
         int pilihanKamar = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
 
         if (pilihanKamar < 1 || pilihanKamar > kamarList.size()) {
             System.out.println("Pilihan tidak valid.");
