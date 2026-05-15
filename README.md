@@ -15,7 +15,7 @@ Tugas Pemrograman Berorientasi Objek (PBO) - Sistem Manajemen Reservasi Hotel de
 
 ## Fitur Utama
 
-Aplikasi ini memiliki dua versi yang saling melengkapi:
+Aplikasi ini memiliki dua versi:
 
 ### Versi Console (Java)
 
