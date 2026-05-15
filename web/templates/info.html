@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Information | LUXE HOTEL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>HOTEL INFO</h1>
+        <p class="subtitle">Where Luxury Meets Comfort</p>
+    </header>
+
+    <main class="container">
+        <div class="form-container" style="max-width: 800px;">
+            <section style="margin-bottom: 2rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">Alamat & Kontak</h3>
+                <p>Jl. Kemewahan No. 101, Jakarta Selatan, Indonesia</p>
+                <p>Telepon: (021) 1234-5678</p>
+                <p>Email: reservations@luxehotel.com</p>
+            </section>
+
+            <section style="margin-bottom: 2rem;">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">Fasilitas Unggulan</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="margin-bottom: 0.5rem;">• Kolam Renang Infinity dengan Pemandangan Kota</li>
+                    <li style="margin-bottom: 0.5rem;">• Spa & Pusat Kebugaran 24 Jam</li>
+                    <li style="margin-bottom: 0.5rem;">• Restoran Bintang 5 dengan Chef Internasional</li>
+                    <li style="margin-bottom: 0.5rem;">• WiFi Berkecepatan Tinggi di Seluruh Area</li>
+                    <li style="margin-bottom: 0.5rem;">• Layanan Concierge Personal</li>
+                </ul>
+            </section>
+
+            <a href="{{ url_for('index') }}" class="btn" style="display: block;">Kembali ke Beranda</a>
+        </div>
+    </main>
+</body>
+</html>

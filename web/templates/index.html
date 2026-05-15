@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE HOTEL | Premium Booking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>LUXE HOTEL</h1>
+        <p class="subtitle">Experience the Art of Premium Living</p>
+        <nav style="margin-top: 2rem;">
+            <a href="{{ url_for('info') }}" style="color: var(--primary); text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Hotel Information</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div style="background: rgba(255, 0, 0, 0.1); border: 1px solid red; color: white; padding: 1rem; border-radius: 0.5rem; margin-bottom: 2rem; text-align: center;">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <section>
+            <h2 style="text-align: center; color: var(--primary);">Curated Accommodations</h2>
+            <div class="room-grid">
+                {% for key, kamar in kamar_list.items() %}
+                <div class="room-card">
+                    <div>
+                        <h3>{{ kamar.tipe }}</h3>
+                        <p class="price">{{ kamar.harga_per_malam | rupiah }} <span style="font-weight: 300; font-size: 0.8rem; color: var(--text-muted);">/ night</span></p>
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                            Luxury amenities, high-speed WiFi, and panoramic views.
+                        </p>
+                    </div>
+                    <a href="{{ url_for('book', tipe=key) }}" class="btn">Select Room</a>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <footer style="text-align: center; padding: 4rem 0; color: var(--text-muted); font-size: 0.8rem;">
+        &copy; 2026 LUXE HOTEL GROUP. ALL RIGHTS RESERVED.
+    </footer>
+</body>
+</html>

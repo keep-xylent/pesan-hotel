@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book {{ kamar.tipe }} | LUXE HOTEL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>RESERVATION</h1>
+        <p class="subtitle">{{ kamar.tipe }} - {{ kamar.harga_per_malam | rupiah }} / night</p>
+    </header>
+
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div style="background: rgba(255, 0, 0, 0.1); border: 1px solid red; color: white; padding: 1rem; border-radius: 0.5rem; margin-bottom: 2rem; text-align: center;">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+
+        <div class="form-container">
+            <form action="{{ url_for('process_booking') }}" method="POST">
+                <input type="hidden" name="tipe" value="{{ kamar.tipe }}">
+                
+                <div class="form-group">
+                    <label for="check_in">Check-In Date</label>
+                    <input type="date" id="check_in" name="check_in" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="check_out">Check-Out Date</label>
+                    <input type="date" id="check_out" name="check_out" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nama">Nama Pemesan</label>
+                    <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap Anda" required>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%; margin-top: 1rem;">Confirm Reservation</button>
+            </form>
+            <a href="{{ url_for('index') }}" class="back-link">Back to Collection</a>
+        </div>
+    </main>
+</body>
+</html>
